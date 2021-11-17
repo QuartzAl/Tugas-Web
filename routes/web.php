@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',  function () {
-    return redirect()->route('home');
-});
 
-Route::get('/home', ['as' => 'home', function () {
+Route::get('/home', function () {
     return view('content.home');
-}]);
+})->name('home');
+
+Route::redirect('/', '/home');
+
+
+Route::get('/product', [ProductController::class, 'index']) ->name('product');
+Route::get('/product/delete/{id}', [ProductController::class, 'destroy']) ->name('deleteProduct');
+Route::get('/addproduct', [ProductController::class, 'create']) ->name('addProduct');
+
+
+Route::get('/categories', [CategoriesController::class, 'index']) ->name('categories');
+Route::get('/category/delete/{id}', [CategoriesController::class, 'destroy']) ->name('deleteCategory');
+Route::get('/addcategory', [CategoriesController::class, 'create']) ->name('addCategory');
