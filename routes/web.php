@@ -25,9 +25,10 @@ Route::redirect('/', '/home');
 
 Route::get('/product', [ProductController::class, 'index']) ->name('product');
 Route::get('/product/delete/{id}', [ProductController::class, 'destroy']) ->name('deleteProduct');
-Route::get('/addproduct', [ProductController::class, 'create']) ->name('addProduct');
+Route::get('/product/add', [ProductController::class, 'create']) ->name('addProduct');
+Route::get('/product/store', [ProductController::class, 'store']) ->name('storeProduct');
 
 
-Route::get('/categories', [CategoriesController::class, 'index']) ->name('categories');
+Route::get('/category', [CategoriesController::class, 'index']) ->name('categories');
 Route::get('/category/delete/{id}', [CategoriesController::class, 'destroy']) ->name('deleteCategory');
-Route::get('/addcategory', [CategoriesController::class, 'create']) ->name('addCategory');
+Route::get('/category/add', [CategoriesController::class, 'create']) ->name('addCategory');

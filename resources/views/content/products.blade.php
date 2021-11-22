@@ -3,7 +3,7 @@
 <section class="content">
     <div class="container-fluid">
         <p>Products</p>
-        <button type="submit" class="btn btn-primary" href={{route('addProduct')}}>New Product</button>
+        <button class="btn btn-primary" href="{{ route('addProduct') }}">New Product</button>
 
         <table class="table table-hover table-striped">
             <thead>
